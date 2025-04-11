@@ -3,6 +3,7 @@ package util;
 import domain.CircularDoublyLinkedList;
 import domain.CircularLinkedList;
 import domain.Employee;
+import domain.JobPosition;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -106,6 +107,10 @@ public class Utility {
                 Employee emp1 = (Employee) a; Employee emp2 = (Employee) b;
                 return emp1.getId() < emp2.getId() ? -1
                         :  emp1.getId() > emp2.getId() ? 1 : 0;
+            case "JobPosition":
+                JobPosition jobP1 = (JobPosition) a; JobPosition jobP2 = (JobPosition) b;
+                return jobP1.getHourlyWage() < jobP2.getHourlyWage() ? -1
+                        : jobP1.getHourlyWage() > jobP2.getHourlyWage() ? 1 : 0;
 
         }
         return 2; //Unknown
@@ -116,6 +121,7 @@ public class Utility {
         if(a instanceof String && b instanceof String) return "String";
         if(a instanceof Character && b instanceof Character) return "Character";
         if(a instanceof Employee && b instanceof Employee) return "Employee";
+        if(a instanceof JobPosition && b instanceof JobPosition) return "JobPosition";
         return "Unknown";
     }
 
