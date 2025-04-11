@@ -28,6 +28,14 @@ public class FXUtility {
         return myalert;
     }
 
+    public static Alert alertInfo(String title, String header){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        return alert;
+    }
+
+
     public static TextInputDialog dialog(String title, String header){
         TextInputDialog dialog = new TextInputDialog(title);
         dialog.setHeaderText(header);

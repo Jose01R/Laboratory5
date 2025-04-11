@@ -67,7 +67,7 @@ public class AddEmployeeController
         Employee employee = new Employee(employeeID, lastName, firstName, title, date);
 
         employeeList.add(employee);
-        util.FXUtility.dialog("Employee added", "The employee has been added");
+        util.FXUtility.alertInfo("Employee added", "The employee has been added").showAndWait();
 
         employeeIDTextField.clear();
         lastNameTextField.clear();

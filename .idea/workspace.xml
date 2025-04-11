@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f34e871e-699c-4aa1-9ca3-dc11775edcaa" name="Changes" comment="">
+
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AddJobPositionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AddJobPositionsController.java" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/JobPositionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/JobPositionsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Utility.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +106,7 @@
   <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ucr.lab.HelloApplication" />
-      <module name="lab" />
+      <module name="Laboratory5" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ucr.lab.*" />
