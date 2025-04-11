@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f34e871e-699c-4aa1-9ca3-dc11775edcaa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AddJobPositionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AddJobPositionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/JobPositionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/JobPositionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/CircularDoublyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/CircularDoublyLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/JobPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/JobPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AddEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AddEmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/FXUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/FXUtility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
