@@ -207,7 +207,34 @@ public class StaffAssignmentController {
 
     @javafx.fxml.FXML
     public void sortAssigTypeOnAction(ActionEvent actionEvent) {
+        try {
+
+            for (int i = 1; i <= staffAssignmentList.size(); i++) {
+                for (int j = i + 1; j <= staffAssignmentList.size(); j++) {
+                    Staffing s1 = (Staffing) staffAssignmentList.getNode(i).data;
+                    Staffing s2 = (Staffing) staffAssignmentList.getNode(j).data;
+
+                    // Compara por assignmentType usando el caso String
+                    int result = util.Utility.compare(s1.getAssignmentType(), s2.getAssignmentType());
+
+                    if (result > 0) { //HACE ORDENAMIENTO
+                        // Intercambiamos los datos directamente
+                        staffAssignmentList.getNode(i).data = s2;
+                        staffAssignmentList.getNode(j).data = s1;
+                    }
+                }
+            }
+
+            alert.setContentText("ORDERED BY ASSIGNMENT TYPE");
+            alert.setAlertType(Alert.AlertType.INFORMATION);
+            alert.showAndWait();
+            updateTableView();
+        } catch (ListException e) {
+            alert.setHeaderText("Error : " + e.getMessage());
+            alert.show();
+        }
     }
+
 
     @javafx.fxml.FXML
     public void sortEmplNameOnAction(ActionEvent actionEvent) {
