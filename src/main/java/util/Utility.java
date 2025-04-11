@@ -1,10 +1,12 @@
 package util;
 
+
 import domain.*;
 import domain.CircularDoublyLinkedList;
 import domain.CircularLinkedList;
 import domain.Employee;
 import domain.JobPosition;
+
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -123,8 +125,6 @@ public class Utility {
                 return s1.getId() < s2.getId() ? -1
                         :  s1.getId() > s2.getId() ? 1 : 0;
 
-
-
         }
         return 2; //Unknown
     }
@@ -137,6 +137,7 @@ public class Utility {
         if(a instanceof JobPosition && b instanceof JobPosition) return "Job Position";
         if(a instanceof Staffing && b instanceof Staffing) return "Staffing";
         if(a instanceof JobPosition && b instanceof JobPosition) return "JobPosition";
+
         return "Unknown";
     }
 
