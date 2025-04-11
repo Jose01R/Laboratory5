@@ -193,6 +193,12 @@ public class CircularDoublyLinkedList implements List {
         if(isEmpty()){
             throw new ListException("Circular Linked List is empty");
         }
+
+        if(first==last){
+            Object element=first.data;
+            first= last =null;
+            return element;
+        }
         Node aux = first;
         Node prev = first;
         while(aux!=last){
@@ -203,9 +209,11 @@ public class CircularDoublyLinkedList implements List {
         Object element = aux.data;
         prev.next = first; //lo enlazamos con el primer nodo
         last = prev;
+
         //hago el enlace circular y doble
         last.next = first;
         first.prev = last;
+
         return element;
     }
 
@@ -305,7 +313,30 @@ public class CircularDoublyLinkedList implements List {
         if(util.Utility.compare(i, index)==0) return aux;
         return null; //si llega aquí es porque no encontró el nodo
     }
+    public void sortByDescription() {
+        if (isEmpty()) return;
 
+        boolean swapped;
+        do {
+            swapped = false;
+            Node aux =first;
+
+            while (aux!= last) {
+                JobPosition jobPosition1 = (JobPosition) aux.data;
+                JobPosition jobPosition2= (JobPosition) aux.next.data;
+
+                if (jobPosition1.getDescription().compareToIgnoreCase(jobPosition2.getDescription()) > 0) {
+                    // Intercambiar los datos de los nodos
+                    Object temp = aux.data;
+                    aux.data = aux.next.data;
+                    aux.next.data = temp;
+
+                    swapped = true;
+                }
+                aux = aux.next;
+            }
+        } while (swapped);
+    }
     @Override
     public String toString() {
         if(isEmpty()) return "Circular Doubly Linked List is empty";

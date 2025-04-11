@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f34e871e-699c-4aa1-9ca3-dc11775edcaa" name="Changes" comment="">
-
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AddJobPositionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AddJobPositionsController.java" afterDir="false" />
-
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/JobPositionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/JobPositionsController.java" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/StaffAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/StaffAssignmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/CircularLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/CircularLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Utility.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Utility.java" afterDir="false" />
-
->>>>>>> 53eff81fbbf4ddc7df5407358a91027d0e0074aa
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/CircularDoublyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/CircularDoublyLinkedList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,30 +57,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "JUnit.CircularDoublyLinkedListTest.executor": "Run",
-    "JUnit.CircularLinkedListTest.executor": "Run",
-    "JUnit.CircularLinkedListTest.test1.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-<<<<<<< HEAD
-    "git-widget-placeholder": "main",
-=======
-    "git-widget-placeholder": "Jared",
->>>>>>> 53eff81fbbf4ddc7df5407358a91027d0e0074aa
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/PC/Documents/Intellij/Laboratory5",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CircularDoublyLinkedListTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CircularLinkedListTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CircularLinkedListTest.test1.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Jared&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Documents/Intellij/Laboratory5&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Repositorios\Laboratory5\src\main\resources\ucr\lab" />
@@ -116,7 +101,7 @@
   <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ucr.lab.HelloApplication" />
-      <module name="Laboratory5" />
+      <module name="lab" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ucr.lab.*" />
@@ -149,6 +134,7 @@
         <item itemvalue="JUnit.CircularLinkedListTest.test1" />
         <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.CircularLinkedListTest.test1" />
+        <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
   </component>
