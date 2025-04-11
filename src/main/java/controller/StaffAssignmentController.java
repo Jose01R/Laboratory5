@@ -247,7 +247,7 @@ public class StaffAssignmentController {
             }
 
             // Ordenamos la lista
-            tempList.sort((s1, s2) -> util.Utility.compare(s1.getEmployeeName(), s2.getEmployeeId()));
+            tempList.sort((s1, s2) -> util.Utility.compare(s1.getEmployeeName(), s2.getEmployeeName()));
 
             // Limpiamos la lista original
             staffAssignmentList.clear();
