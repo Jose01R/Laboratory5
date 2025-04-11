@@ -50,8 +50,15 @@ public class AddJStaffAssignmentController {
         alert = util.FXUtility.alert("Staff Assignment List", "Add Staff Assignment");
 
         // Llamamos a los métodos para cargar los ComboBoxes
-        loadEmployeeChoiceBox(); //falta implementar estos dos metodos
+        loadEmployeeChoiceBox();
         loadJobPositionChoiceBox();
+        loadSupervisorChoiceBox();
+        loadAssignTypeChoiceBox();
+
+        // Mostrar el nuevo ID disponible
+        int nextId = Staffing.getAutoId() + 1;
+        idRegisterTextField.setText(String.valueOf(nextId));
+
     }
 
     //METODO PARA GUARDAR HORA Y FECHA
@@ -69,11 +76,57 @@ public class AddJStaffAssignmentController {
 
     @javafx.fxml.FXML
     public void addOnAction(ActionEvent actionEvent) {
+
+        LocalDate dateLocal = dateStaffAssignment.getValue();
+        Employee selectedEmployee = (Employee) selectEmployeeChoiceBox.getValue();
+        JobPosition selectedJobPosition = (JobPosition) selectJobPositionChoiceBox.getValue();
+        String supervisorValue= (String)selectSupervisorChoiceBox.getValue();
+        String assignTypeValue= (String)selectAssigTypeChoiceBox.getValue();
+
+
+        // Crear el nuevo registro
+        // Verifica si todos los campos están completos
+        if (selectedJobPosition==null || selectedEmployee == null || supervisorValue==null || assignTypeValue==null || dateLocal==null ) {
+            util.FXUtility.alert("ERROR", "Todos los campos deben ser completados.").showAndWait();
+            return;
+        }
+        LocalDateTime localDateTime = dateLocal.atStartOfDay();
+        Staffing staffing = new Staffing(
+                localDateTime,
+                selectedEmployee.getId(),
+                selectedEmployee.getFirstName(),
+               selectedJobPosition.getDescription(),
+               supervisorValue,
+               assignTypeValue
+        );
+
+        // Agregar el nuevo registro a la lista local registerList
+        staffAssignmentList.add(staffing);
+        util.Utility.setStaffAssignmentList(staffAssignmentList);
+        if (staffAssignmentController != null) {
+            try {
+                staffAssignmentController.updateTableView();
+            } catch (ListException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        // Mostrar el nuevo ID disponible
+        int nextId = Staffing.getAutoId() + 1;
+        idRegisterTextField.setText(String.valueOf(nextId));
+
+        // Limpiar los campos después de agregar el registro
+        cleanOnAction(actionEvent);
+
+        // Mostrar una alerta de éxito
+        alert.setContentText("Staff added correctly");
+        alert.setAlertType(Alert.AlertType.INFORMATION);
+        alert.showAndWait();
+
     }
 
     @javafx.fxml.FXML
     public void cleanOnAction(ActionEvent actionEvent) {
-        idRegisterTextField.clear();
         dateStaffAssignment.setValue(null);
         selectAssigTypeChoiceBox.getSelectionModel().clearSelection();
         selectEmployeeChoiceBox.getSelectionModel().clearSelection();
@@ -117,5 +170,39 @@ public class AddJStaffAssignmentController {
         } catch (ListException e) {
             util.FXUtility.alert("ERROR", "No se pudo cargar la lista de posicion de trabajos");
         }
+    }
+    private void loadSupervisorChoiceBox(){
+        ObservableList<String> observableListRandomNames= FXCollections.observableArrayList();
+        String []apellidos={"Carvajal","Picado","Hernandez","Solano","Tenorio","Smith","Salazar","Perez","Gutierrez"};
+        String []nombres={"Gerardo","Kristel","María","Roberto","Carlos","Lincy","Jose","Luis","Jared"};
+        while (observableListRandomNames.size()<5){
+            int randomNumberLastName =util.Utility.random(8);
+            int randomNumberFirstName =util.Utility.random(8);
+            String apellidoSeleccionado = apellidos[randomNumberLastName];
+            String nombreSeleccionado=nombres[randomNumberFirstName];
+            String fullName=apellidoSeleccionado.concat(" "+nombreSeleccionado);
+
+            boolean alreadyExists=false;
+            for (String concatenation:observableListRandomNames){
+                if (concatenation.contains(fullName)){
+                    alreadyExists=true;
+                    break;
+                }
+            }
+            if(!alreadyExists) {
+                observableListRandomNames.add(fullName);
+            }
+        }
+        selectSupervisorChoiceBox.setItems(observableListRandomNames);
+    }
+    private void loadAssignTypeChoiceBox(){
+
+        ObservableList<String> observableListAssingType= FXCollections.observableArrayList();
+        observableListAssingType.add("Promotion");
+        observableListAssingType.add("Transferencia");
+        observableListAssingType.add("Nuevo ingreso");
+        observableListAssingType.add("Temporal");
+        observableListAssingType.add("Otro");
+        selectAssigTypeChoiceBox.setItems(observableListAssingType);
     }
 }

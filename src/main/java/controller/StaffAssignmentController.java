@@ -41,13 +41,14 @@ public class StaffAssignmentController {
         this.staffAssignmentList = util.Utility.getStaffAssignmentList();
         alert = util.FXUtility.alert("Staff Assignment List", "Display Staff Assignment");
         alert.setAlertType(Alert.AlertType.ERROR);
-        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        employeeIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("Employee Id"));
-        employeeNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("Employee name"));
-        jobPositionTableColumn.setCellValueFactory(new PropertyValueFactory<>("Job Position"));
-        assignationTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("Assignment Type"));
-        supervisorNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("Supervisor Name"));
-        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("Date"));
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        employeeIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
+        employeeNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("employeeName"));
+        jobPositionTableColumn.setCellValueFactory(new PropertyValueFactory<>("jobPosition"));
+        assignationTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("assignmentType"));
+        supervisorNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("supervisor"));
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+
         try{
             if(staffAssignmentList!=null && !staffAssignmentList.isEmpty()){
                 for(int i=1; i<=staffAssignmentList.size(); i++) {
@@ -186,7 +187,7 @@ public class StaffAssignmentController {
     public void sortJobPositionOnAction(ActionEvent actionEvent) {
     }
 
-    private void updateTableView() throws ListException {
+    public void updateTableView() throws ListException {
         this.staffAssignmentTableView.getItems().clear(); //clear table
         this.staffAssignmentList = util.Utility.getStaffAssignmentList(); //cargo la lista
         if(staffAssignmentList!=null && !staffAssignmentList.isEmpty()){
