@@ -279,6 +279,7 @@ public class CircularDoublyLinkedList implements List {
                 return aux.next.data; //el elemento posterior
             }
             aux = aux.next; //lo movemos al sgte nodo
+
         }
         //se sale cuando aux==last
         if(util.Utility.compare(aux.data, element)==0){
