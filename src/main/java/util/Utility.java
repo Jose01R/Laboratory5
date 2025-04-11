@@ -1,6 +1,13 @@
 package util;
 
+<<<<<<< HEAD
 import domain.*;
+=======
+import domain.CircularDoublyLinkedList;
+import domain.CircularLinkedList;
+import domain.Employee;
+import domain.JobPosition;
+>>>>>>> 53eff81fbbf4ddc7df5407358a91027d0e0074aa
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -54,6 +61,11 @@ public class Utility {
         return 1+random.nextInt(bound);
     }
 
+    public static int randomMinMax(int min, int max) {
+        return (int)(Math.random() * (max - min + 1)) + min;
+    }
+
+
     public static void fill(int[] a) {
         for (int i = 0; i < a.length; i++) {
             a[i] = random(99);
@@ -99,6 +111,10 @@ public class Utility {
                 Employee emp1 = (Employee) a; Employee emp2 = (Employee) b;
                 return emp1.getId() < emp2.getId() ? -1
                         :  emp1.getId() > emp2.getId() ? 1 : 0;
+            case "JobPosition":
+                JobPosition jobP1 = (JobPosition) a; JobPosition jobP2 = (JobPosition) b;
+                return jobP1.getHourlyWage() < jobP2.getHourlyWage() ? -1
+                        : jobP1.getHourlyWage() > jobP2.getHourlyWage() ? 1 : 0;
 
             case "Job Position":
                 JobPosition jP1 = (JobPosition) a; JobPosition jP2 = (JobPosition) b;
@@ -119,9 +135,13 @@ public class Utility {
         if(a instanceof String && b instanceof String) return "String";
         if(a instanceof Character && b instanceof Character) return "Character";
         if(a instanceof Employee && b instanceof Employee) return "Employee";
+<<<<<<< HEAD
         if(a instanceof JobPosition && b instanceof JobPosition) return "Job Position";
         if(a instanceof Staffing && b instanceof Staffing) return "Staffing";
 
+=======
+        if(a instanceof JobPosition && b instanceof JobPosition) return "JobPosition";
+>>>>>>> 53eff81fbbf4ddc7df5407358a91027d0e0074aa
         return "Unknown";
     }
 

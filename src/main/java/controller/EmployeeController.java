@@ -220,7 +220,18 @@ public class EmployeeController
 
     @javafx.fxml.FXML
     public void removeLastOnAction(ActionEvent actionEvent) {
-        //metodo de removeFirst
+        try {
+            this.employeeList.removeLast();
+            util.Utility.setEmployeeList(this.employeeList); //actualizo la lista general
+            this.alert.setContentText("The last element was deleted");
+            this.alert.setAlertType(Alert.AlertType.INFORMATION);
+            this.alert.showAndWait();
+            updateTableView(); //actualiza el contenido del tableview
+        } catch (ListException e) {
+            alert.setContentText("Error: "+e.getMessage());
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+        }
     }
 
     @javafx.fxml.FXML
@@ -245,12 +256,39 @@ public class EmployeeController
 
     @javafx.fxml.FXML
     public void sortByIdOnAction(ActionEvent actionEvent) {
-        //metodo de sort ID
+        try {
+            this.employeeList.sort();
+            this.alert.setContentText("ORDERED LIST");
+            util.Utility.setEmployeeList(this.employeeList); //actualizo la lista general
+            this.alert.setAlertType(Alert.AlertType.INFORMATION);
+            this.alert.showAndWait();
+            updateTableView();//actualiza el contenido del tableview
+            //disableButtonsIfListEmpty();
+        } catch (ListException e) {
+            alert.setHeaderText("Error : " + e.getMessage());
+            alert.show();
+        }
     }
+
 
     @javafx.fxml.FXML
     public void sortByNameOnAction(ActionEvent actionEvent) {
-        //metodo de sort name
+            try {
+                employeeList.sortByFirstName(); // tu método personalizado
+
+                this.alert.setContentText("EMPLOYEE LIST ORDERED BY NAME");
+                this.alert.setAlertType(Alert.AlertType.INFORMATION);
+                this.alert.showAndWait();
+
+                util.Utility.setEmployeeList(employeeList); // actualizo la lista en Utility
+                updateTableView(); // actualiza el contenido del TableView
+
+                // Opcional: disableButtonsIfListEmpty();
+
+            } catch (ListException e) {
+                alert.setHeaderText("Error: " + e.getMessage());
+                alert.show();
+            }
     }
 
     @javafx.fxml.FXML
@@ -273,6 +311,7 @@ public class EmployeeController
             alert.showAndWait();
         }
     }
+
 
     private void updateTableView() throws ListException {
         this.employeeTableView.getItems().clear(); //clear table

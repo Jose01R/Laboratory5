@@ -280,6 +280,30 @@ public class CircularLinkedList implements List {
         if(util.Utility.compare(i, index)==0) return aux;
         return null; //si llega aquí es porque no encontró el nodo
     }
+    public void sortByFirstName() {
+        if (isEmpty()) return;
+
+        boolean swapped;
+        do {
+            swapped = false;
+            Node aux =first;
+
+            while (aux!= last) {
+                Employee employee1 = (Employee) aux.data;
+                Employee employee2 = (Employee) aux.next.data;
+
+                if (employee1.getFirstName().compareToIgnoreCase(employee2.getFirstName()) > 0) {
+                    // Intercambiar los datos de los nodos
+                    Object temp = aux.data;
+                    aux.data = aux.next.data;
+                    aux.next.data = temp;
+
+                    swapped = true;
+                }
+                aux = aux.next;
+            }
+        } while (swapped);
+    }
 
     @Override
     public String toString() {

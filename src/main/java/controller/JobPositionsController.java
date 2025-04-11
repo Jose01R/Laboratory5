@@ -17,7 +17,7 @@ public class JobPositionsController {
     @javafx.fxml.FXML
     private TableColumn<JobPosition, Integer> idTableColumn;
     @javafx.fxml.FXML
-    private TableColumn<JobPosition, String> hourlyWageTableColumn;
+    private TableColumn<JobPosition, Double> hourlyWageTableColumn;
     @javafx.fxml.FXML
     private TableColumn<JobPosition, String> descriptionTableColumn;
     @javafx.fxml.FXML
@@ -39,11 +39,24 @@ public class JobPositionsController {
         alert.setAlertType(Alert.AlertType.ERROR);
         idTableColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
         descriptionTableColumn.setCellValueFactory(new PropertyValueFactory<>("Description"));
-        hourlyWageTableColumn.setCellValueFactory(new PropertyValueFactory<>("Hourly Wage"));
-        totalHoursTableColumn.setCellValueFactory(new PropertyValueFactory<>("Total Hours"));
-        monthlyWageTableColumn.setCellValueFactory(new PropertyValueFactory<>("Monthly Wage"));
+        hourlyWageTableColumn.setCellValueFactory(new PropertyValueFactory<>("HourlyWage"));
+
+        totalHoursTableColumn.setCellValueFactory(cellData -> {
+            double hoursWorked = getTotalHours();
+            return new javafx.beans.property.SimpleStringProperty(String.valueOf(hoursWorked));
+        });
+
+        monthlyWageTableColumn.setCellValueFactory(cellData -> {
+            double hoursWorked = getTotalHours();
+            //LLAMADA A METODO CALCULO SALARIO
+            double salary = cellData.getValue().getSalary(hoursWorked);
+            return new javafx.beans.property.SimpleStringProperty(String.format("%.2f", salary));
+        });
+
+
         try{
             if(jobPositionsList!=null && !jobPositionsList.isEmpty()){
+
                 for(int i=1; i<=jobPositionsList.size(); i++) {
                     jobPositionsTableView.getItems().add((JobPosition) jobPositionsList.getNode(i).data);
                 }
@@ -151,7 +164,18 @@ public class JobPositionsController {
 
     @javafx.fxml.FXML
     public void sortByHourlyOnAction(ActionEvent actionEvent) {
-        //metodo de sort por horas
+
+        try {
+            this.jobPositionsList.sort();
+            util.Utility.setJobPositionsList(this.jobPositionsList);
+            alert.setAlertType(Alert.AlertType.INFORMATION);
+            this.alert.setContentText("ORDERED LIST");
+            alert.showAndWait();
+            updateTableView();
+        } catch (ListException e) {
+            alert.setHeaderText("Error : " + e.getMessage());
+            alert.show();
+        }
     }
 
     @javafx.fxml.FXML
@@ -235,5 +259,9 @@ public class JobPositionsController {
                 this.jobPositionsTableView.getItems().add((JobPosition) jobPositionsList.getNode(i).data);
             }
         }
+    }
+
+    private double getTotalHours(){
+        return util.Utility.randomMinMax(40, 50);
     }
 }

@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f34e871e-699c-4aa1-9ca3-dc11775edcaa" name="Changes" comment="">
+
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AddJobPositionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AddJobPositionsController.java" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AddEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AddEmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/JobPositionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/JobPositionsController.java" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/StaffAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/StaffAssignmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/domain/CircularLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/CircularLinkedList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Utility.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Utility.java" afterDir="false" />
+
+>>>>>>> 53eff81fbbf4ddc7df5407358a91027d0e0074aa
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +34,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -67,9 +79,13 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+<<<<<<< HEAD
     "git-widget-placeholder": "main",
+=======
+    "git-widget-placeholder": "Jared",
+>>>>>>> 53eff81fbbf4ddc7df5407358a91027d0e0074aa
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Repositorios/Laboratory5/src/main/resources/ucr/lab",
+    "last_opened_file_path": "C:/Users/PC/Documents/Intellij/Laboratory5",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -131,6 +147,8 @@
       <list>
         <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.CircularLinkedListTest.test1" />
+        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JUnit.CircularLinkedListTest.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -143,6 +161,19 @@
       <option name="presentableId" value="Default" />
       <updated>1744231225820</updated>
     </task>
+    <task id="LOCAL-00001" summary="metodos que faltan employee">
+      <option name="closed" value="true" />
+      <created>1744392669753</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744392669753</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="metodos que faltan employee" />
+    <option name="LAST_COMMIT_MESSAGE" value="metodos que faltan employee" />
   </component>
 </project>
