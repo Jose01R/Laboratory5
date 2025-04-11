@@ -115,11 +115,6 @@ public class Utility {
                 return jobP1.getHourlyWage() < jobP2.getHourlyWage() ? -1
                         : jobP1.getHourlyWage() > jobP2.getHourlyWage() ? 1 : 0;
 
-            case "Job Position":
-                JobPosition jP1 = (JobPosition) a; JobPosition jP2 = (JobPosition) b;
-                return jP1.getId() < jP2.getId() ? -1
-                        :  jP1.getId() > jP2.getId() ? 1 : 0;
-
             case "Staffing":
                 Staffing s1 = (Staffing) a; Staffing s2 = (Staffing) b;
                 return s1.getId() < s2.getId() ? -1
@@ -134,7 +129,6 @@ public class Utility {
         if(a instanceof String && b instanceof String) return "String";
         if(a instanceof Character && b instanceof Character) return "Character";
         if(a instanceof Employee && b instanceof Employee) return "Employee";
-        if(a instanceof JobPosition && b instanceof JobPosition) return "Job Position";
         if(a instanceof Staffing && b instanceof Staffing) return "Staffing";
         if(a instanceof JobPosition && b instanceof JobPosition) return "JobPosition";
 
