@@ -46,7 +46,10 @@
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font></TextField>
-                  <TextField fx:id="hourlyWageTextField" layoutX="186.0" layoutY="200.0" prefHeight="43.0" prefWidth="140.0" />
+                  <TextField fx:id="hourlyWageTextField" layoutX="186.0" layoutY="200.0" prefHeight="43.0" prefWidth="140.0">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font></TextField>
                </children>
             </Pane>
             <Pane layoutY="465.0" prefHeight="124.0" prefWidth="550.0" style="-fx-background-color: #b87c1a;">

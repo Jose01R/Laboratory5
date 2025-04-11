@@ -56,12 +56,12 @@
                   </TextField>
                   <TextField fx:id="lastNameTextField" layoutX="210.0" layoutY="93.0" prefHeight="43.0" prefWidth="290.0">
                      <font>
-                        <Font name="Arial" size="16.0" />
+                        <Font name="Arial Bold" size="16.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="firstNameTextField" layoutX="210.0" layoutY="142.0" prefHeight="43.0" prefWidth="290.0">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="Arial Bold" size="16.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="titleTextField" layoutX="210.0" layoutY="196.0" prefHeight="43.0" prefWidth="290.0">

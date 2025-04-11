@@ -168,7 +168,7 @@ public class JobPositionsController {
         try {
             this.jobPositionsList.sort();
             util.Utility.setJobPositionsList(this.jobPositionsList);
-            this.alert.setContentText("ORDERED LIST");
+            this.alert.setContentText("Ordered list");
             alert.setAlertType(Alert.AlertType.INFORMATION);
             alert.showAndWait();
             updateTableView();
@@ -278,7 +278,7 @@ public class JobPositionsController {
             this.jobPositionsList.sortByDescription();//Metodo de CircularDoublyLinkedList que ordena por descripcion
             util.Utility.setJobPositionsList(this.jobPositionsList);//Actualiaza la lista
             alert.setAlertType(Alert.AlertType.INFORMATION);
-            this.alert.setContentText("ORDERED LIST");
+            this.alert.setContentText("Ordered List");
             alert.showAndWait();
             updateTableView();//Actualiza el tableView
         } catch (ListException e) {

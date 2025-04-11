@@ -194,7 +194,7 @@ public class StaffAssignmentController {
             util.Utility.setStaffAssignmentList(this.staffAssignmentList);
             updateTableView();
 
-            this.alert.setContentText("LIST ORDERED BY EMPLOYEE ID (USING Utility.compare)");
+            this.alert.setContentText("List Ordered by Employee ID (Using Utility.compare)");
             this.alert.setAlertType(Alert.AlertType.INFORMATION);
             this.alert.showAndWait();
 
@@ -225,7 +225,7 @@ public class StaffAssignmentController {
                 }
             }
 
-            alert.setContentText("ORDERED BY ASSIGNMENT TYPE");
+            alert.setContentText("Ordered by Assignment Type");
             alert.setAlertType(Alert.AlertType.INFORMATION);
             alert.showAndWait();
             updateTableView();
@@ -260,7 +260,7 @@ public class StaffAssignmentController {
             util.Utility.setStaffAssignmentList(this.staffAssignmentList);
             updateTableView();
 
-            this.alert.setContentText("LIST ORDERED BY EMPLOYEE ID (USING Utility.compare)");
+            this.alert.setContentText("List Ordered by Employee ID (Using Utility.compare)");
             this.alert.setAlertType(Alert.AlertType.INFORMATION);
             this.alert.showAndWait();
 
@@ -295,7 +295,7 @@ public class StaffAssignmentController {
             util.Utility.setStaffAssignmentList(this.staffAssignmentList);
             updateTableView();
 
-            this.alert.setContentText("LIST ORDERED BY EMPLOYEE ID (USING Utility.compare)");
+            this.alert.setContentText("List Ordered by Employee ID (Using Utility.compare)");
             this.alert.setAlertType(Alert.AlertType.INFORMATION);
             this.alert.showAndWait();
 

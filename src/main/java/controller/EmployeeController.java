@@ -258,7 +258,7 @@ public class EmployeeController
     public void sortByIdOnAction(ActionEvent actionEvent) {
         try {
             this.employeeList.sort();
-            this.alert.setContentText("ORDERED LIST");
+            this.alert.setContentText("Ordered List");
             util.Utility.setEmployeeList(this.employeeList); //actualizo la lista general
             this.alert.setAlertType(Alert.AlertType.INFORMATION);
             this.alert.showAndWait();
@@ -274,9 +274,9 @@ public class EmployeeController
     @javafx.fxml.FXML
     public void sortByNameOnAction(ActionEvent actionEvent) {
             try {
-                employeeList.sortByFirstName(); // tu método personalizado
+                employeeList.sortByFirstName(); // metodo personalizado
 
-                this.alert.setContentText("EMPLOYEE LIST ORDERED BY NAME");
+                this.alert.setContentText("Employee List Ordered by Name");
                 this.alert.setAlertType(Alert.AlertType.INFORMATION);
                 this.alert.showAndWait();
 
