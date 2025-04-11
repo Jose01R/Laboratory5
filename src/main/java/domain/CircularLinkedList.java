@@ -44,6 +44,7 @@ public class CircularLinkedList implements List {
         }
         //se sale del while cuando aux esta en el ult nodo
         if(util.Utility.compare(aux.data, element)==0) return true;
+
         return false; //significa que no encontro el elemento
     }
 

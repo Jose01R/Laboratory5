@@ -4,11 +4,11 @@ import domain.CircularLinkedList;
 import domain.Employee;
 import domain.ListException;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+
+import java.util.Optional;
 
 public class EmployeeController
 {
@@ -71,6 +71,56 @@ public class EmployeeController
     @javafx.fxml.FXML
     public void containsOnAction(ActionEvent actionEvent) {
         //metodo contains
+        TextInputDialog inputDialog = new TextInputDialog();
+        inputDialog.setTitle("Contains Employee");
+        inputDialog.setHeaderText("Enter the ID of the employee you want to search for:");
+        inputDialog.setContentText("ID:");
+
+        Optional<String> result = inputDialog.showAndWait();
+        //detecta si se cerró el diálogo sin escribir nada, o presionó Cancelar
+        if (!result.isPresent()) return;
+
+        String input = result.get().trim();
+        int idToSearch;
+
+        try {
+            idToSearch = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            alert.setContentText("Invalid ID format. Please enter a valid number.");
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+            return;
+        }
+
+        try {
+            Employee toSearch = null;
+
+            for (int i = 1; i <= employeeList.size(); i++) {
+                Employee employee = (Employee) employeeList.getNode(i).data;
+                if (util.Utility.compare(employee.getId(), idToSearch)==0) {
+                    toSearch = employee;
+                    break;
+                }
+            }
+
+            if (toSearch == null) {
+                alert.setContentText("Not employee found with ID: " + idToSearch);
+                alert.setAlertType(Alert.AlertType.WARNING);
+            } else {
+                boolean exists = employeeList.contains(toSearch);
+                alert.setContentText("Employee with ID " + toSearch.getId() + " was " +
+                        (exists ? "it's on the list. \nLastName and FirstName: " + toSearch.getLastName() + toSearch.getFirstName() : "not found in the list."));
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+            }
+
+            alert.showAndWait();
+            updateTableView();
+
+        } catch (ListException e) {
+            alert.setContentText("Error accessing employee list: " + e.getMessage());
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+        }
     }
 
     @javafx.fxml.FXML
@@ -96,6 +146,76 @@ public class EmployeeController
     @javafx.fxml.FXML
     public void removeOnAction(ActionEvent actionEvent) {
         //metodo de remove
+        TextInputDialog inputDialog = new TextInputDialog();
+        inputDialog.setTitle("Remove Employee");
+        inputDialog.setHeaderText("Enter the ID of the employee to remove:");
+        inputDialog.setContentText("ID:");
+
+        Optional<String> result = inputDialog.showAndWait();
+        //detecta si se cerró el diálogo sin escribir nada, o presionó Cancelar
+        if (!result.isPresent()) return;
+
+        String input = result.get().trim();
+        int idToRemove;
+
+        try {
+            idToRemove = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            alert.setContentText("Invalid ID format. Please enter a valid number.");
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+            return;
+        }
+
+        try {
+            Employee toRemove = null;
+
+            for (int i = 1; i <= employeeList.size(); i++) {
+                Employee employee = (Employee) employeeList.getNode(i).data;
+                if (util.Utility.compare(employee.getId(), idToRemove)==0) {
+                    toRemove = employee;
+                    break;
+                }
+            }
+
+            if (toRemove == null) {
+                alert.setContentText("No employee found with ID: " + idToRemove);
+                alert.setAlertType(Alert.AlertType.WARNING);
+                alert.showAndWait();
+                return;
+            }
+
+            final Employee finalToRemove = toRemove;
+
+            //alerta que confirma que si quiero eliminar al empleado con ese id
+            Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmAlert.setTitle("Confirm Deletion");
+            confirmAlert.setHeaderText("Are you sure you want to delete this employee?");
+            confirmAlert.setContentText("ID: " + finalToRemove.getId() +
+                    "\nName: " + finalToRemove.getFirstName() + " " + finalToRemove.getLastName());
+            //es el boton que elimina al empleado con el id
+            confirmAlert.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+                    try {
+                        employeeList.remove(finalToRemove);
+                        util.Utility.setEmployeeList(employeeList);
+                        alert.setContentText("Employee with ID " + finalToRemove.getId() + " was successfully removed.");
+                        alert.setAlertType(Alert.AlertType.INFORMATION);
+                        alert.showAndWait();
+                        updateTableView();
+                    } catch (ListException e) {
+                        alert.setContentText("Error removing employee: " + e.getMessage());
+                        alert.setAlertType(Alert.AlertType.ERROR);
+                        alert.showAndWait();
+                    }
+                }
+            });
+
+        } catch (ListException e) {
+            alert.setContentText("Error accessing employee list: " + e.getMessage());
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+        }
     }
 
     @javafx.fxml.FXML

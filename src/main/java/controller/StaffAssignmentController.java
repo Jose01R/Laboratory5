@@ -1,14 +1,15 @@
 package controller;
 
 import domain.CircularDoublyLinkedList;
+import domain.JobPosition;
 import domain.ListException;
 import domain.Staffing;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+
+import java.util.Optional;
 
 public class StaffAssignmentController {
     @javafx.fxml.FXML
@@ -76,6 +77,77 @@ public class StaffAssignmentController {
 
     @javafx.fxml.FXML
     public void removeOnAction(ActionEvent actionEvent) {
+        //metodo de remove
+        TextInputDialog inputDialog = new TextInputDialog();
+        inputDialog.setTitle("Remove Staff Assignment");
+        inputDialog.setHeaderText("Enter the ID of the Staff Assignment to remove:");
+        inputDialog.setContentText("ID:");
+
+        Optional<String> result = inputDialog.showAndWait();
+        //detecta si se cerró el diálogo sin escribir nada, o presionó Cancelar
+        if (!result.isPresent()) return;
+
+        String input = result.get().trim();
+        int idToRemove;
+
+        try {
+            idToRemove = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            alert.setContentText("Invalid ID format. Please enter a valid number.");
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+            return;
+        }
+
+        try {
+            Staffing toRemove = null;
+
+            for (int i = 1; i <= staffAssignmentList.size(); i++) {
+                Staffing staffing = (Staffing) staffAssignmentList.getNode(i).data;
+                if (util.Utility.compare(staffing.getId(), idToRemove)==0) {
+                    toRemove = staffing;
+                    break;
+                }
+            }
+
+            if (toRemove == null) {
+                alert.setContentText("No Staff Assignment found with ID: " + idToRemove);
+                alert.setAlertType(Alert.AlertType.WARNING);
+                alert.showAndWait();
+                return;
+            }
+
+            final Staffing finalToRemove = toRemove;
+
+            //alerta que confirma que si quiero eliminar al puesto de trabajo con ese id
+            Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmAlert.setTitle("Confirm Deletion");
+            confirmAlert.setHeaderText("Are you sure you want to delete this Staff Assignment?");
+//            confirmAlert.setContentText("ID: " + finalToRemove.getId() +
+//                    "\nDescription: " + finalToRemove.getDescription());
+            //es el boton que elimina al puesto de trabajo con el id
+            confirmAlert.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+                    try {
+                        staffAssignmentList.remove(finalToRemove);
+                        util.Utility.setStaffAssignmentList(staffAssignmentList);
+                        alert.setContentText("Staff Assignment with ID " + finalToRemove.getId() + " was successfully removed.");
+                        alert.setAlertType(Alert.AlertType.INFORMATION);
+                        alert.showAndWait();
+                        updateTableView();
+                    } catch (ListException e) {
+                        alert.setContentText("Error removing staff assignment: " + e.getMessage());
+                        alert.setAlertType(Alert.AlertType.ERROR);
+                        alert.showAndWait();
+                    }
+                }
+            });
+
+        } catch (ListException e) {
+            alert.setContentText("Error accessing job positions list: " + e.getMessage());
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+        }
     }
 
     @javafx.fxml.FXML

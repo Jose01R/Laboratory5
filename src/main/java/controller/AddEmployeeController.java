@@ -8,6 +8,7 @@ import javafx.event.Event;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.BorderPane;
 
 import java.time.LocalDate;
@@ -68,6 +69,12 @@ public class AddEmployeeController
 
         employeeList.add(employee);
         util.FXUtility.dialog("Employee added", "The employee has been added");
+
+        //Alerta al añadir
+//        alert.setAlertType(Alert.AlertType.INFORMATION);
+//        alert.setTitle("Add employee");
+//        alert.setHeaderText("The employee has been added");
+        //alert.showAndWait();
 
         employeeIDTextField.clear();
         lastNameTextField.clear();

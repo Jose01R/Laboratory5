@@ -1,14 +1,15 @@
 package controller;
 
 import domain.CircularDoublyLinkedList;
+import domain.Employee;
 import domain.JobPosition;
 import domain.ListException;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+
+import java.util.Optional;
 
 public class JobPositionsController {
     @javafx.fxml.FXML
@@ -71,6 +72,76 @@ public class JobPositionsController {
     @javafx.fxml.FXML
     public void removeOnAction(ActionEvent actionEvent) {
         //metodo de remove
+        TextInputDialog inputDialog = new TextInputDialog();
+        inputDialog.setTitle("Remove Job Position");
+        inputDialog.setHeaderText("Enter the ID of the Job Position to remove:");
+        inputDialog.setContentText("ID:");
+
+        Optional<String> result = inputDialog.showAndWait();
+        //detecta si se cerró el diálogo sin escribir nada, o presionó Cancelar
+        if (!result.isPresent()) return;
+
+        String input = result.get().trim();
+        int idToRemove;
+
+        try {
+            idToRemove = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            alert.setContentText("Invalid ID format. Please enter a valid number.");
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+            return;
+        }
+
+        try {
+            JobPosition toRemove = null;
+
+            for (int i = 1; i <= jobPositionsList.size(); i++) {
+                JobPosition jobPosition = (JobPosition) jobPositionsList.getNode(i).data;
+                if (util.Utility.compare(jobPosition.getId(), idToRemove)==0) {
+                    toRemove = jobPosition;
+                    break;
+                }
+            }
+
+            if (toRemove == null) {
+                alert.setContentText("No Job Position found with ID: " + idToRemove);
+                alert.setAlertType(Alert.AlertType.WARNING);
+                alert.showAndWait();
+                return;
+            }
+
+            final JobPosition finalToRemove = toRemove;
+
+            //alerta que confirma que si quiero eliminar al puesto de trabajo con ese id
+            Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmAlert.setTitle("Confirm Deletion");
+            confirmAlert.setHeaderText("Are you sure you want to delete this job position?");
+            confirmAlert.setContentText("ID: " + finalToRemove.getId() +
+                    "\nDescription: " + finalToRemove.getDescription());
+            //es el boton que elimina al puesto de trabajo con el id
+            confirmAlert.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+                    try {
+                        jobPositionsList.remove(finalToRemove);
+                        util.Utility.setJobPositionsList(jobPositionsList);
+                        alert.setContentText("Job Position with ID " + finalToRemove.getId() + " was successfully removed.");
+                        alert.setAlertType(Alert.AlertType.INFORMATION);
+                        alert.showAndWait();
+                        updateTableView();
+                    } catch (ListException e) {
+                        alert.setContentText("Error removing job position: " + e.getMessage());
+                        alert.setAlertType(Alert.AlertType.ERROR);
+                        alert.showAndWait();
+                    }
+                }
+            });
+
+        } catch (ListException e) {
+            alert.setContentText("Error accessing job positions list: " + e.getMessage());
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+        }
     }
 
     @javafx.fxml.FXML

@@ -1,8 +1,6 @@
 package util;
 
-import domain.CircularDoublyLinkedList;
-import domain.CircularLinkedList;
-import domain.Employee;
+import domain.*;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -102,6 +100,16 @@ public class Utility {
                 return emp1.getId() < emp2.getId() ? -1
                         :  emp1.getId() > emp2.getId() ? 1 : 0;
 
+            case "Job Position":
+                JobPosition jP1 = (JobPosition) a; JobPosition jP2 = (JobPosition) b;
+                return jP1.getId() < jP2.getId() ? -1
+                        :  jP1.getId() > jP2.getId() ? 1 : 0;
+
+            case "Staffing":
+                Staffing s1 = (Staffing) a; Staffing s2 = (Staffing) b;
+                return s1.getId() < s2.getId() ? -1
+                        :  s1.getId() > s2.getId() ? 1 : 0;
+
         }
         return 2; //Unknown
     }
@@ -111,6 +119,9 @@ public class Utility {
         if(a instanceof String && b instanceof String) return "String";
         if(a instanceof Character && b instanceof Character) return "Character";
         if(a instanceof Employee && b instanceof Employee) return "Employee";
+        if(a instanceof JobPosition && b instanceof JobPosition) return "Job Position";
+        if(a instanceof Staffing && b instanceof Staffing) return "Staffing";
+
         return "Unknown";
     }
 
