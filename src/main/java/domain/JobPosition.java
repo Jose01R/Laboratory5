@@ -63,6 +63,7 @@ public class JobPosition {
         return n * hourlyWage; //n = numero de horas trabajadas
     }
 
+
     @Override
     public String toString() {
         return "(ID)"+id+"/(Job Position)"+description +" /(Hourly Wage)"+ hourlyWage;
