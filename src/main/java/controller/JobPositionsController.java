@@ -16,7 +16,7 @@ public class JobPositionsController {
     @javafx.fxml.FXML
     private TableColumn<JobPosition, Integer> idTableColumn;
     @javafx.fxml.FXML
-    private TableColumn<JobPosition, String> hourlyWageTableColumn;
+    private TableColumn<JobPosition, Double> hourlyWageTableColumn;
     @javafx.fxml.FXML
     private TableColumn<JobPosition, String> descriptionTableColumn;
     @javafx.fxml.FXML
@@ -80,7 +80,18 @@ public class JobPositionsController {
 
     @javafx.fxml.FXML
     public void sortByHourlyOnAction(ActionEvent actionEvent) {
-        //metodo de sort por horas
+
+        try {
+            this.jobPositionsList.sort();
+            util.Utility.setJobPositionsList(this.jobPositionsList);
+            alert.setAlertType(Alert.AlertType.INFORMATION);
+            this.alert.setContentText("ORDERED LIST");
+            alert.showAndWait();
+            updateTableView();
+        } catch (ListException e) {
+            alert.setHeaderText("Error : " + e.getMessage());
+            alert.show();
+        }
     }
 
     @javafx.fxml.FXML
