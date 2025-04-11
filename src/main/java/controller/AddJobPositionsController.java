@@ -55,7 +55,7 @@ public class AddJobPositionsController {
             jobPositionsList.add(jobPosition);
             util.Utility.setJobPositionsList(jobPositionsList); // actualizo lista global
 
-            util.FXUtility.dialog("Job Position Added", "The job position has been added.");
+            util.FXUtility.alertInfo("Job Position Added", "The job position has been added.");
 
             descriptionTextField.clear();
             hourlyWageTextField.clear();
