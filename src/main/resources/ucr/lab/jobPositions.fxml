@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bp" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.JobPositionsController">
+    <center>
+        <AnchorPane prefHeight="734.0" prefWidth="787.0">
+            <children>
+                <Pane layoutX="6.0" prefHeight="86.0" prefWidth="794.0" style="-fx-background-color: #fe6962;">
+                    <children>
+                        <Label layoutX="25.0" layoutY="23.0" text="Job Positions List (with estimate Monthly Wage)">
+                            <font>
+                                <Font name="Arial" size="35.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane layoutX="3.0" layoutY="86.0" prefHeight="367.0" prefWidth="798.0">
+                    <children>
+                        <TableView fx:id="jobPositionsTableView" layoutX="15.0" layoutY="14.0" prefHeight="350.0" prefWidth="761.0">
+                            <columns>
+                                <TableColumn fx:id="idTableColumn" prefWidth="68.00000381469727" text="ID" />
+                                <TableColumn fx:id="descriptionTableColumn" prefWidth="203.1999969482422" text="Description" />
+                                <TableColumn fx:id="hourlyWageTableColumn" minWidth="8.0" prefWidth="177.5999755859375" text="Hourly Wage" />
+                                <TableColumn fx:id="totalHoursTableColumn" minWidth="0.0" prefWidth="165.60003662109375" text="Total Hours" />
+                                <TableColumn fx:id="monthlyWageTableColumn" prefWidth="147.2000732421875" text="Monthly Wage" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </Pane>
+                <Pane layoutX="19.0" layoutY="462.0" prefHeight="153.0" prefWidth="761.0">
+                    <children>
+                        <ButtonBar layoutX="1.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="761.0">
+                            <buttons>
+                                <Button layoutX="202.0" layoutY="17.0" mnemonicParsing="false" onAction="#sizeOnAction" text="Size" />
+                                <Button layoutX="685.0" layoutY="17.0" mnemonicParsing="false" onAction="#containsOnAction" text="Contains" />
+                                <Button layoutX="135.0" layoutY="17.0" mnemonicParsing="false" onAction="#sortByNameOnAction" text="Sort by Name" />
+                                <Button layoutX="135.0" layoutY="17.0" mnemonicParsing="false" onAction="#sortByHourlyOnAction" text="Sort by hourly" />
+                                <Button mnemonicParsing="false" onAction="#addOnAction" text="Add" />
+                            </buttons>
+                        </ButtonBar>
+                        <ButtonBar layoutY="57.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="761.0">
+                            <buttons>
+                                <Button layoutX="202.0" layoutY="17.0" mnemonicParsing="false" onAction="#clearOnAction" text="Clear" />
+                                <Button layoutX="125.0" layoutY="17.0" mnemonicParsing="false" onAction="#removeLastOnAction" text="Remove Last" />
+                                <Button layoutX="525.0" layoutY="17.0" mnemonicParsing="false" onAction="#removeOnAction" text="Remove" />
+                                <Button layoutX="104.0" layoutY="17.0" mnemonicParsing="false" onAction="#getNextOnAction" text="Get Next" />
+                                <Button mnemonicParsing="false" onAction="#getPrevOnAction" text="Get Prev" />
+                            </buttons>
+                        </ButtonBar>
+                    </children>
+                </Pane>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

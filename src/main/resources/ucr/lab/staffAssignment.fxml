@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bp" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StaffAssignmentController">
+   <center>
+      <AnchorPane prefHeight="734.0" prefWidth="787.0">
+         <children>
+            <Pane layoutX="6.0" prefHeight="86.0" prefWidth="794.0" style="-fx-background-color: #fe6962;">
+               <children>
+                  <Label layoutX="20.0" layoutY="22.0" text="Staff Assignment (Circular Doubly Linked List)">
+                     <font>
+                        <Font name="Arial" size="37.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="3.0" layoutY="86.0" prefHeight="367.0" prefWidth="798.0">
+               <children>
+                  <TableView fx:id="staffAssignmentTableView" layoutX="15.0" layoutY="14.0" prefHeight="350.0" prefWidth="761.0">
+                    <columns>
+                      <TableColumn fx:id="idTableColumn" prefWidth="42.399993896484375" text="Id" />
+                      <TableColumn fx:id="dateTableColumn" prefWidth="104.79996109008789" text="Date" />
+                        <TableColumn fx:id="employeeIdTableColumn" minWidth="8.0" prefWidth="108.79997253417969" text="Employee Id" />
+                        <TableColumn fx:id="employeeNameTableColumn" minWidth="0.0" prefWidth="100.79998779296875" text="Employee name" />
+                        <TableColumn fx:id="jobPositionTableColumn" minWidth="0.0" prefWidth="129.5999755859375" text="Job Position" />
+                        <TableColumn fx:id="supervisorNameTableColumn" prefWidth="141.59991455078125" text="Supervisor Name" />
+                        <TableColumn fx:id="assignationTypeTableColumn" prefWidth="132.80010986328125" text="Assignation type" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <Pane layoutX="19.0" layoutY="462.0" prefHeight="153.0" prefWidth="761.0">
+               <children>
+                  <ButtonBar layoutX="1.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="761.0">
+                    <buttons>
+                        <Button layoutX="202.0" layoutY="17.0" mnemonicParsing="false" onAction="#sizeOnAction" text="Size" />
+                        <Button layoutX="135.0" layoutY="17.0" mnemonicParsing="false" onAction="#sortAssigTypeOnAction" text="Sort Assig Type" />
+                        <Button layoutX="135.0" layoutY="17.0" mnemonicParsing="false" onAction="#removeOnAction" text="Remove" />
+                      <Button mnemonicParsing="false" onAction="#addOnAction" text="Add" />
+                    </buttons>
+                  </ButtonBar>
+                  <ButtonBar layoutY="57.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="761.0">
+                    <buttons>
+                        <Button layoutX="202.0" layoutY="17.0" mnemonicParsing="false" onAction="#clearOnAction" text="Clear" />
+                        <Button layoutX="525.0" layoutY="17.0" mnemonicParsing="false" onAction="#sortJobPositionOnAction" text="Sort Job Position" />
+                        <Button layoutX="104.0" layoutY="17.0" mnemonicParsing="false" onAction="#sortEmplNameOnAction" text="Sort Empl Name" />
+                      <Button mnemonicParsing="false" onAction="#sortEmplIdOnAction" text="Sort Empl Id" />
+                    </buttons>
+                  </ButtonBar>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

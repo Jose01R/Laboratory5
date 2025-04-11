@@ -1,7 +1,8 @@
 package controller;
 
-import domain.*;
+import domain.CircularLinkedList;
 import domain.Employee;
+import domain.ListException;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
@@ -14,37 +15,39 @@ public class EmployeeController
     @javafx.fxml.FXML
     private BorderPane bp;
     @javafx.fxml.FXML
-    private TableView<Employee> EmployeeTableview; //establezco el tipo para el tableview
+    private TableView<Employee> employeeTableView;
     @javafx.fxml.FXML
-    private TableColumn<Employee, String> idTableColumn;
+    private TableColumn<Employee, Integer> idTableColumn;//este tambien
     @javafx.fxml.FXML
-    private TableColumn<Employee, String> nameTableColumn;
+    private TableColumn<Employee, String> titleTableColumn;
     @javafx.fxml.FXML
-    private TableColumn<Employee, Integer> ageTableColumn;
+    private TableColumn<Employee, String> firstNameTableColumn;
     @javafx.fxml.FXML
-    private TableColumn<Employee, String> addressTableColumn;
-
+    private TableColumn<Employee, String> lastNameTableColumn;
+    @javafx.fxml.FXML
+    private TableColumn<Employee, String> birtdayTableColumn;//este tengo que ver
     //defino la lista enlazada interna
-    private CircularLinkedList EmployeeList;
+    private CircularLinkedList employeeList;
     private Alert alert; //para el manejo de alertas
 
     @javafx.fxml.FXML
     public void initialize() {
         //cargamos la lista general
-        this.EmployeeList = util.Utility.getEmployeeList();
+        this.employeeList = util.Utility.getEmployeeList();
         alert = util.FXUtility.alert("Employee List", "Display Employee");
         alert.setAlertType(Alert.AlertType.ERROR);
         idTableColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        ageTableColumn.setCellValueFactory(new PropertyValueFactory<>("Age"));
-        addressTableColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        lastNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("Last Name"));
+        firstNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("First Name"));
+        titleTableColumn.setCellValueFactory(new PropertyValueFactory<>("Title"));
+        birtdayTableColumn.setCellValueFactory(new PropertyValueFactory<>("Birtday"));
         try{
-            if(EmployeeList!=null && !EmployeeList.isEmpty()){
-                for(int i=1; i<=EmployeeList.size(); i++) {
-                    EmployeeTableview.getItems().add((Employee) EmployeeList.getNode(i).data);
+            if(employeeList!=null && !employeeList.isEmpty()){
+                for(int i=1; i<=employeeList.size(); i++) {
+                    employeeTableView.getItems().add((Employee) employeeList.getNode(i).data);
                 }
             }
-            //this.EmployeeTableView.setItems(observableList);
+            //this.studentTableView.setItems(observableList);
         }catch(ListException ex){
             alert.setContentText("Employee list is empty");
             alert.showAndWait();
@@ -53,8 +56,8 @@ public class EmployeeController
 
     @javafx.fxml.FXML
     public void clearOnAction(ActionEvent actionEvent) {
-        this.EmployeeList.clear();
-        util.Utility.setEmployeeList(this.EmployeeList); //actualizo la lista general
+        this.employeeList.clear();
+        util.Utility.setEmployeeList(this.employeeList); //actualizo la lista general
         this.alert.setContentText("The list was deleted");
         this.alert.setAlertType(Alert.AlertType.INFORMATION);
         this.alert.showAndWait();
@@ -67,10 +70,12 @@ public class EmployeeController
 
     @javafx.fxml.FXML
     public void containsOnAction(ActionEvent actionEvent) {
+        //metodo contains
     }
 
     @javafx.fxml.FXML
     public void sizeOnAction(ActionEvent actionEvent) {
+        //metodo size
     }
 
     @javafx.fxml.FXML
@@ -79,36 +84,41 @@ public class EmployeeController
     }
 
     @javafx.fxml.FXML
-    public void addFirstOnAction(ActionEvent actionEvent) {
-        util.FXUtility.loadPage("ucr.lab.HelloApplication", "addFirstEmployee.fxml", bp);
-    }
-
-    @javafx.fxml.FXML
     public void removeOnAction(ActionEvent actionEvent) {
+        //metodo de remove
     }
 
     @javafx.fxml.FXML
-    public void addSortedOnAction(ActionEvent actionEvent) {
+    public void removeLastOnAction(ActionEvent actionEvent) {
+        //metodo de removeFirst
     }
 
     @javafx.fxml.FXML
-    public void getFirstOnAction(ActionEvent actionEvent) {
+    public void getPrevOnAction(ActionEvent actionEvent) {
+        //metodo de prev
     }
 
     @javafx.fxml.FXML
-    public void removeFirstOnAction(ActionEvent actionEvent) {
+    public void sortByIdOnAction(ActionEvent actionEvent) {
+        //metodo de sort ID
     }
 
     @javafx.fxml.FXML
-    public void getLastOnAction(ActionEvent actionEvent) {
+    public void sortByNameOnAction(ActionEvent actionEvent) {
+        //metodo de sort name
+    }
+
+    @javafx.fxml.FXML
+    public void getNextOnAction(ActionEvent actionEvent) {
+        //sort name
     }
 
     private void updateTableView() throws ListException {
-        this.EmployeeTableview.getItems().clear(); //clear table
-        this.EmployeeList = util.Utility.getEmployeeList(); //cargo la lista
-        if(EmployeeList!=null && !EmployeeList.isEmpty()){
-            for(int i=1; i<=EmployeeList.size(); i++) {
-                this.EmployeeTableview.getItems().add((Employee)EmployeeList.getNode(i).data);
+        this.employeeTableView.getItems().clear(); //clear table
+        this.employeeList = util.Utility.getEmployeeList(); //cargo la lista
+        if(employeeList!=null && !employeeList.isEmpty()){
+            for(int i=1; i<=employeeList.size(); i++) {
+                this.employeeTableView.getItems().add((Employee) employeeList.getNode(i).data);
             }
         }
     }

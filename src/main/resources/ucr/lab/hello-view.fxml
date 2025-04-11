@@ -16,17 +16,17 @@
                   <Font name="Arial" size="30.0" />
                </font>
             </Button>
-            <Button layoutX="10.0" layoutY="72.0" mnemonicParsing="false" onAction="#studentsOnAction" onMousePressed="#exampleOnMousePressed" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Students" textFill="WHITE">
+            <Button layoutX="10.0" layoutY="72.0" mnemonicParsing="false" onAction="#employessOnAction" onMousePressed="#exampleOnMousePressed" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Employees" textFill="WHITE">
                <font>
                   <Font name="Arial" size="30.0" />
                </font>
             </Button>
-            <Button layoutX="10.0" layoutY="72.0" mnemonicParsing="false" onAction="#coursesOnAction" onMousePressed="#exampleOnMousePressed" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Courses" textFill="WHITE">
+            <Button layoutX="10.0" layoutY="72.0" mnemonicParsing="false" onAction="#jobPositionsOnAction" onMousePressed="#exampleOnMousePressed" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Job Positions" textFill="WHITE">
                <font>
                   <Font name="Arial" size="30.0" />
                </font>
             </Button>
-            <Button layoutX="10.0" layoutY="134.0" mnemonicParsing="false" onAction="#registerOnAction" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Register" textFill="WHITE">
+            <Button layoutX="10.0" layoutY="134.0" mnemonicParsing="false" onAction="#staffingOnAction" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Staffing" textFill="WHITE">
                <font>
                   <Font name="Arial" size="30.0" />
                </font>
@@ -42,7 +42,7 @@
    <center>
       <AnchorPane fx:id="ap" prefHeight="769.0" prefWidth="816.0" style="-fx-background-color: #141428;" BorderPane.alignment="CENTER">
          <children>
-            <Text fx:id="txtMessage" fill="#f7f7f7" layoutX="4.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory No. 4" textAlignment="CENTER" wrappingWidth="781.94921875">
+            <Text fx:id="txtMessage" fill="#f7f7f7" layoutX="4.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory No. 5" textAlignment="CENTER" wrappingWidth="781.94921875">
                <font>
                   <Font name="Arial" size="40.0" />
                </font>

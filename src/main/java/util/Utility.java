@@ -1,8 +1,8 @@
 package util;
 
+import domain.CircularDoublyLinkedList;
 import domain.CircularLinkedList;
 import domain.Employee;
-import domain.SinglyLinkedList;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -12,6 +12,10 @@ import java.util.Random;
 public class Utility {
     private static final Random random;
     private static CircularLinkedList employeeList;
+    private static CircularDoublyLinkedList jobPositionsList;
+    private static CircularDoublyLinkedList staffAssignmentList;
+
+
 
     //constructor estatico, inicializador estatico
     static {
@@ -19,13 +23,31 @@ public class Utility {
         long seed = System.currentTimeMillis();
         random = new Random(seed);
         employeeList = new CircularLinkedList();
+        jobPositionsList = new CircularDoublyLinkedList();
+        staffAssignmentList = new CircularDoublyLinkedList();
+    }
+
+    public static CircularDoublyLinkedList getStaffAssignmentList() {
+        return staffAssignmentList;
+    }
+
+    public static void setStaffAssignmentList(CircularDoublyLinkedList staffAssignmentList) {
+        Utility.staffAssignmentList = staffAssignmentList;
+    }
+
+    public static CircularDoublyLinkedList getJobPositionsList() {
+        return jobPositionsList;
+    }
+
+    public static void setJobPositionsList(CircularDoublyLinkedList jobPositionsList) {
+        Utility.jobPositionsList = jobPositionsList;
     }
 
     public static CircularLinkedList getEmployeeList() {
         return employeeList;
     }
 
-    public static void setEmployeeList(CircularLinkedList studentList) {
+    public static void setEmployeeList(CircularLinkedList employeeList) {
         Utility.employeeList = employeeList;
     }
 
@@ -76,10 +98,9 @@ public class Utility {
                 return ch1.compareTo(ch2) < 0 ? -1 : ch1.compareTo(ch2) > 0 ? 1 : 0;
 
             case "Employee":
-                Employee ep1 = (Employee) a; Employee ep2 = (Employee) b;
-                return ep1.getId() < ep2.getId() ? -1
-                        :  ep1.getId()> ep2.getId() ? 1 : 0;
-
+                Employee emp1 = (Employee) a; Employee emp2 = (Employee) b;
+                return emp1.getId() < emp2.getId() ? -1
+                        :  emp1.getId() > emp2.getId() ? 1 : 0;
 
         }
         return 2; //Unknown
@@ -90,11 +111,10 @@ public class Utility {
         if(a instanceof String && b instanceof String) return "String";
         if(a instanceof Character && b instanceof Character) return "Character";
         if(a instanceof Employee && b instanceof Employee) return "Employee";
-        if(a instanceof Employee && b instanceof Employee) return "EmployeeTitle";
         return "Unknown";
     }
 
-    public static String dateFormat(Date value) {
+    public static String dateFormat(Date value){
         return new SimpleDateFormat("dd/MM/yyyy").format(value);
     }
 }

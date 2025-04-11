@@ -1,26 +1,28 @@
 package controller;
 
 import domain.CircularLinkedList;
-import domain.SinglyLinkedList;
-import domain.Employee;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
 public class AddEmployeeController
 {
     @javafx.fxml.FXML
-    private TextField textFieldName;
-    @javafx.fxml.FXML
-    private TextField textFieldID;
-    @javafx.fxml.FXML
-    private TextField textFieldAge;
-    @javafx.fxml.FXML
-    private TextField textAreaAddress;
-    @javafx.fxml.FXML
     private BorderPane bp;
+    @javafx.fxml.FXML
+    private TextField titleTextField;
+    @javafx.fxml.FXML
+    private TextField lastNameTextField;
+    @javafx.fxml.FXML
+    private DatePicker birthdayTextField;
+    @javafx.fxml.FXML
+    private TextField employeeIDTextField;
+    @javafx.fxml.FXML
+    private TextField firstNameTextField;
+
     //defino la lista enlazada interna
     private CircularLinkedList employeeList;
     private Alert alert; //para el manejo de alertas
@@ -29,10 +31,10 @@ public class AddEmployeeController
     public void initialize() {
         //cargamos la lista general
         this.employeeList = util.Utility.getEmployeeList();
-        alert = util.FXUtility.alert("Student List", "Add Student");
+        alert = util.FXUtility.alert("Employee List", "Add Employee");
     }
 
-    @javafx.fxml.FXML
+    @Deprecated //pa que era eso?
     public void onKeyTypeAgeValidation(Event event) {
     }
 
@@ -42,6 +44,11 @@ public class AddEmployeeController
 
     @javafx.fxml.FXML
     public void cleanOnAction(ActionEvent actionEvent) {
+        employeeIDTextField.clear();
+        lastNameTextField.clear();
+        firstNameTextField.clear();
+        titleTextField.clear();
+        birthdayTextField.setValue(null);
     }
 
     @javafx.fxml.FXML
