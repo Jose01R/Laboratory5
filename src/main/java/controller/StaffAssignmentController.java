@@ -183,7 +183,7 @@ public class StaffAssignmentController {
             // Ordenamos la lista
             tempList.sort((s1, s2) -> util.Utility.compare(s1.getEmployeeId(), s2.getEmployeeId()));
 
-            // Paso 3: Limpiamos la lista original
+            // Limpiamos la lista original
             staffAssignmentList.clear();
 
             // Volvemos a insertar los elementos a la CircularList
@@ -222,7 +222,7 @@ public class StaffAssignmentController {
             // Ordenamos la lista
             tempList.sort((s1, s2) -> util.Utility.compare(s1.getEmployeeName(), s2.getEmployeeId()));
 
-            // Paso 3: Limpiamos la lista original
+            // Limpiamos la lista original
             staffAssignmentList.clear();
 
             // Volvemos a insertar los elementos a la CircularList
@@ -257,7 +257,7 @@ public class StaffAssignmentController {
             // Ordenamos la lista
             tempList.sort((s1, s2) -> util.Utility.compare(s1.getJobPosition(), s2.getJobPosition()));
 
-            // Paso 3: Limpiamos la lista original
+            // Limpiamos la lista original
             staffAssignmentList.clear();
 
             // Volvemos a insertar los elementos a la CircularList
