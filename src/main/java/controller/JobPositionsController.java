@@ -97,8 +97,8 @@ public class JobPositionsController {
         try {
             this.jobPositionsList.sort();
             util.Utility.setJobPositionsList(this.jobPositionsList);
-            alert.setAlertType(Alert.AlertType.INFORMATION);
             this.alert.setContentText("ORDERED LIST");
+            alert.setAlertType(Alert.AlertType.INFORMATION);
             alert.showAndWait();
             updateTableView();
         } catch (ListException e) {
@@ -109,7 +109,20 @@ public class JobPositionsController {
 
     @javafx.fxml.FXML
     public void removeLastOnAction(ActionEvent actionEvent) {
-        //metodo de eliminar el ultimo
+
+        try {
+            Object elementRemoved=this.jobPositionsList.removeLast();
+            util.Utility.setJobPositionsList(this.jobPositionsList);//Actualizar lista
+            this.alert.setContentText("Last element removed : " +elementRemoved);
+            this.alert.setAlertType(Alert.AlertType.INFORMATION);
+            this.alert.showAndWait();
+            updateTableView();//Actualizar tableView
+        }catch (ListException e){
+            alert.setHeaderText("Error: "+e.getMessage());
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+        }
+
     }
 
     @javafx.fxml.FXML
@@ -140,7 +153,17 @@ public class JobPositionsController {
 
     @javafx.fxml.FXML
     public void sortByNameOnAction(ActionEvent actionEvent) {
-        //metodo de contains
+        try {
+            this.jobPositionsList.sortByDescription();//Metodo de CircularDoublyLinkedList que ordena por descripcion
+            util.Utility.setJobPositionsList(this.jobPositionsList);//Actualiaza la lista
+            alert.setAlertType(Alert.AlertType.INFORMATION);
+            this.alert.setContentText("ORDERED LIST");
+            alert.showAndWait();
+            updateTableView();//Actualiza el tableView
+        } catch (ListException e) {
+            alert.setHeaderText("Error : " + e.getMessage());
+            alert.show();
+        }
     }
 
     @javafx.fxml.FXML
@@ -179,6 +202,7 @@ public class JobPositionsController {
             alert.show();
         }
     }
+
 
     private void updateTableView() throws ListException {
         this.jobPositionsTableView.getItems().clear(); //clear table
