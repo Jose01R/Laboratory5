@@ -123,8 +123,7 @@ public class StaffAssignmentController {
             Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
             confirmAlert.setTitle("Confirm Deletion");
             confirmAlert.setHeaderText("Are you sure you want to delete this Staff Assignment?");
-//            confirmAlert.setContentText("ID: " + finalToRemove.getId() +
-//                    "\nDescription: " + finalToRemove.getDescription());
+            confirmAlert.setContentText("ID: " + finalToRemove.getId());
             //es el boton que elimina al puesto de trabajo con el id
             confirmAlert.showAndWait().ifPresent(response -> {
                 if (response == ButtonType.OK) {

@@ -220,6 +220,56 @@ public class JobPositionsController {
     @javafx.fxml.FXML
     public void containsOnAction(ActionEvent actionEvent) {
         //metodo contains
+        TextInputDialog inputDialog = new TextInputDialog();
+        inputDialog.setTitle("Contains Job Positions");
+        inputDialog.setHeaderText("Enter the ID of the job position you want to search for:");
+        inputDialog.setContentText("ID:");
+
+        Optional<String> result = inputDialog.showAndWait();
+        //detecta si se cerró el diálogo sin escribir nada, o presionó Cancelar
+        if (!result.isPresent()) return;
+
+        String input = result.get().trim();
+        int idToSearch;
+
+        try {
+            idToSearch = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            alert.setContentText("Invalid ID format. Please enter a valid number.");
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+            return;
+        }
+
+        try {
+            JobPosition toSearch = null;
+
+            for (int i = 1; i <= jobPositionsList.size(); i++) {
+                JobPosition jobPosition = (JobPosition) jobPositionsList.getNode(i).data;
+                if (util.Utility.compare(jobPosition.getId(), idToSearch)==0) {
+                    toSearch = jobPosition;
+                    break;
+                }
+            }
+
+            if (toSearch == null) {
+                alert.setContentText("Not job position found with ID: " + idToSearch);
+                alert.setAlertType(Alert.AlertType.WARNING);
+            } else {
+                boolean exists = jobPositionsList.contains(toSearch);
+                alert.setContentText("Job Position with ID " + toSearch.getId() + " was " +
+                        (exists ? "it's on the list. \nDescription: " + toSearch.getDescription() : "not found in the list."));
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+            }
+
+            alert.showAndWait();
+            updateTableView();
+
+        } catch (ListException e) {
+            alert.setContentText("Error accessing job positions list: " + e.getMessage());
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+        }
     }
 
     @javafx.fxml.FXML

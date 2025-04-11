@@ -70,12 +70,6 @@ public class AddEmployeeController
         employeeList.add(employee);
         util.FXUtility.alertInfo("Employee added", "The employee has been added").showAndWait();
 
-        //Alerta al añadir
-//        alert.setAlertType(Alert.AlertType.INFORMATION);
-//        alert.setTitle("Add employee");
-//        alert.setHeaderText("The employee has been added");
-        //alert.showAndWait();
-
         employeeIDTextField.clear();
         lastNameTextField.clear();
         firstNameTextField.clear();

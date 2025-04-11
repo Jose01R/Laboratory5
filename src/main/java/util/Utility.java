@@ -1,13 +1,10 @@
 package util;
 
-<<<<<<< HEAD
 import domain.*;
-=======
 import domain.CircularDoublyLinkedList;
 import domain.CircularLinkedList;
 import domain.Employee;
 import domain.JobPosition;
->>>>>>> 53eff81fbbf4ddc7df5407358a91027d0e0074aa
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -135,13 +132,9 @@ public class Utility {
         if(a instanceof String && b instanceof String) return "String";
         if(a instanceof Character && b instanceof Character) return "Character";
         if(a instanceof Employee && b instanceof Employee) return "Employee";
-<<<<<<< HEAD
         if(a instanceof JobPosition && b instanceof JobPosition) return "Job Position";
         if(a instanceof Staffing && b instanceof Staffing) return "Staffing";
-
-=======
         if(a instanceof JobPosition && b instanceof JobPosition) return "JobPosition";
->>>>>>> 53eff81fbbf4ddc7df5407358a91027d0e0074aa
         return "Unknown";
     }
 

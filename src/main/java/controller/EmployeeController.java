@@ -109,7 +109,7 @@ public class EmployeeController
             } else {
                 boolean exists = employeeList.contains(toSearch);
                 alert.setContentText("Employee with ID " + toSearch.getId() + " was " +
-                        (exists ? "it's on the list. \nLastName and FirstName: " + toSearch.getLastName() + toSearch.getFirstName() : "not found in the list."));
+                        (exists ? "it's on the list. \nLastName and FirstName: " + toSearch.getLastName() + " " +toSearch.getFirstName() : "not found in the list."));
                 alert.setAlertType(Alert.AlertType.INFORMATION);
             }
 
