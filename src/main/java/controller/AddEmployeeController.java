@@ -2,6 +2,7 @@ package controller;
 
 import domain.CircularLinkedList;
 import domain.Employee;
+import domain.ListException;
 import javafx.css.converter.StringConverter;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -65,6 +66,23 @@ public class AddEmployeeController
         java.util.Date date = java.util.Date.from(localDateTime.atZone(java.time.ZoneId.systemDefault()).toInstant());
 
         int employeeID = Integer.parseInt(employeeIDText); //se convierte a int
+
+        try {
+            if (!employeeList.isEmpty()) {
+                for (int i = 1; i <= employeeList.size(); i++) {
+                    Employee existing = (Employee) employeeList.getNode(i).data;
+                    if (existing.getId() == employeeID) {
+                        util.FXUtility.alert("ERROR", "Ya existe un empleado con este ID.").showAndWait();
+                        employeeIDTextField.clear();
+                        return;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            util.FXUtility.alert("ERROR", "Error al validar ID: " + e.getMessage()).showAndWait();
+            return;
+        }
+
         Employee employee = new Employee(employeeID, lastName, firstName, title, date);
 
         employeeList.add(employee);
