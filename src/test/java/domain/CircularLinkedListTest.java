@@ -60,10 +60,23 @@ class CircularLinkedListTest {
         list.add(new Employee(15, "Ibarra", "Carmen", "Diseño Web", calendar.getTime()));
 
         calendar.set(1965, 7, 6);
-        list.add(new Employee(16, "Silva", "Roberto", "Abogado", calendar.getTime()));
+        list.add(new Employee(17, "Silva", "Roberto", "Abogado", calendar.getTime()));
         System.out.println(list);
 
+
         try {
+            System.out.println("LISTA ORDENADA\n");
+            list.sort();
+            calendar.set(1968, 7, 6);
+            list.addInSortedList(new Employee(16, "Dilva", "Roberto", "Abogado", calendar.getTime()));
+            System.out.println(list);
+        } catch (ListException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        try {
+            System.out.println("\n");
             System.out.println(showAgeList(list,"Empleados con rango de edad entre 18  y 25", 18, 25));
             System.out.println(showAgeList(list, "Empleados con rango de edad entre 26  y 40",26, 40));
             System.out.println(showAgeList(list, "Empleados con rango de edad entre 41  y 55", 41, 55));

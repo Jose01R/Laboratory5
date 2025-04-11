@@ -95,6 +95,17 @@ class CircularDoublyLinkedListTest {
             throw new RuntimeException(e);
         }
 
+        //PRUEBA ADD IN SORTED LIST
+        try {
+            list.sort();
+            calendar.set(1975, 7, 6);
+            list.addInSortedList(new Employee(16, "Filva", "Roberto", "Abogado", calendar.getTime()));
+            System.out.println(list);
+        } catch (ListException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
     private String showAgeList(CircularDoublyLinkedList list, String msg, int low, int high) throws ListException {

@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f34e871e-699c-4aa1-9ca3-dc11775edcaa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/CircularDoublyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/CircularDoublyLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/CircularLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/CircularLinkedList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/domain/CircularDoublyLinkedListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/domain/CircularDoublyLinkedListTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/domain/CircularLinkedListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/domain/CircularLinkedListTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +46,7 @@
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
     "JUnit.CircularDoublyLinkedListTest.executor": "Run",
+    "JUnit.CircularLinkedListTest.executor": "Run",
     "JUnit.CircularLinkedListTest.test1.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",

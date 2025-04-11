@@ -79,7 +79,42 @@ public class CircularLinkedList implements List {
 
     @Override
     public void addInSortedList(Object element) {
+        Node newNode = new Node(element);
 
+        // Caso 1: La lista está vacía o el nuevo elemento es menor que el primero
+        if (isEmpty()) {
+            first = last = newNode;
+            last.next = first;
+            return;
+        }
+
+        // Caso 2: Si el nuevo elemento debe ir al inicio
+        if (util.Utility.compare(element, first.data) < 0) {
+            newNode.next = first;
+            first = newNode;
+            last.next = first; // mantener circularidad
+            return;
+        }
+
+        //Caso  3: Insertar al final o en medio
+        Node prev = null;
+        Node current = first;
+
+        while (current != last && util.Utility.compare(current.data, element) < 0) {
+            prev = current;
+            current = current.next;
+        }
+
+        newNode.next = current;
+        prev.next = newNode;
+
+        // Actualizamos last
+        if (current == first && util.Utility.compare(element, last.data) > 0 || current == last && util.Utility.compare(element, last.data) > 0) {
+            last = newNode;
+        }
+
+        //al final hacenos el enlace circular
+        last.next = first;
     }
 
     @Override

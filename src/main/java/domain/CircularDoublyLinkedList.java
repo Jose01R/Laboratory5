@@ -87,7 +87,55 @@ public class CircularDoublyLinkedList implements List {
 
     @Override
     public void addInSortedList(Object element) {
+        //TODO
+        Node newNode = new Node(element);
 
+        // Caso 1: La lista está vacía o el nuevo elemento es menor que el primero
+        if (isEmpty()) {
+            first = last = newNode;
+            last.next = first;
+            first.prev = last;
+            return;
+        }
+
+        // Caso 2: Si el nuevo elemento debe ir al inicio
+        if (util.Utility.compare(element, first.data) < 0) {
+            newNode.next = first;
+            first.prev = newNode;
+            first = newNode;
+            // mantener doble enlace
+            last.next = first;
+            first.prev = last;
+            return;
+        }
+
+        //Caso  3: Insertar al final o en medio
+        Node prev = null;
+        Node current = first;
+
+        while (current != last && util.Utility.compare(current.data, element) < 0) {
+            prev = current;
+            current = current.next;
+        }
+
+        newNode.next = current;
+        prev.next = newNode;
+
+        if (current != null) {
+            current.prev = newNode;
+        }
+
+        if (prev != null) {
+            prev.next = newNode;
+        }
+
+        // Si se inserta al final, actualizar `last`
+        if (current == null) {
+            last = newNode;
+            //ENLACE CIRCULAR
+            last.next = first;
+            first.prev = last;
+        }
     }
 
     @Override
