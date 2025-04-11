@@ -1,12 +1,20 @@
 package controller;
 
 import domain.CircularLinkedList;
+import domain.Employee;
+import javafx.css.converter.StringConverter;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class AddEmployeeController
 {
@@ -34,12 +42,39 @@ public class AddEmployeeController
         alert = util.FXUtility.alert("Employee List", "Add Employee");
     }
 
-    @Deprecated //pa que era eso?
-    public void onKeyTypeAgeValidation(Event event) {
-    }
 
     @javafx.fxml.FXML
     public void addOnAction(ActionEvent actionEvent) {
+        String title = titleTextField.getText().trim();
+        String lastName = lastNameTextField.getText().trim();
+        String employeeIDText = employeeIDTextField.getText().trim();
+        String firstName = firstNameTextField.getText().trim();
+        LocalDate dateLocal = birthdayTextField.getValue();
+
+        // Verifica si todos los campos están completos
+        if (title.isEmpty() || lastName.isEmpty() || employeeIDText.isEmpty() || firstName.isEmpty() || dateLocal == null) {
+            util.FXUtility.alert("ERROR", "Todos los campos deben ser completados.").showAndWait();
+            return;
+        }
+
+        // Crear el nuevo registro
+
+        // Convertimos LocalDate a Date
+        LocalDateTime localDateTime = dateLocal.atStartOfDay();
+        java.util.Date date = java.util.Date.from(localDateTime.atZone(java.time.ZoneId.systemDefault()).toInstant());
+
+        int employeeID = Integer.parseInt(employeeIDText); //se convierte a int
+        Employee employee = new Employee(employeeID, lastName, firstName, title, date);
+
+        employeeList.add(employee);
+        util.FXUtility.dialog("Employee added", "The employee has been added");
+
+        employeeIDTextField.clear();
+        lastNameTextField.clear();
+        firstNameTextField.clear();
+        titleTextField.clear();
+        birthdayTextField.setValue(null);
+
     }
 
     @javafx.fxml.FXML

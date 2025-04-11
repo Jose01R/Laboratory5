@@ -36,11 +36,11 @@ public class EmployeeController
         this.employeeList = util.Utility.getEmployeeList();
         alert = util.FXUtility.alert("Employee List", "Display Employee");
         alert.setAlertType(Alert.AlertType.ERROR);
-        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        lastNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("Last Name"));
-        firstNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("First Name"));
-        titleTableColumn.setCellValueFactory(new PropertyValueFactory<>("Title"));
-        birtdayTableColumn.setCellValueFactory(new PropertyValueFactory<>("Birtday"));
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        lastNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        firstNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        titleTableColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+        birtdayTableColumn.setCellValueFactory(new PropertyValueFactory<>("birthday"));
         try{
             if(employeeList!=null && !employeeList.isEmpty()){
                 for(int i=1; i<=employeeList.size(); i++) {
@@ -75,7 +75,17 @@ public class EmployeeController
 
     @javafx.fxml.FXML
     public void sizeOnAction(ActionEvent actionEvent) {
-        //metodo size
+        try {
+            this.alert.setContentText("The number of employees are : " + this.employeeList.size());
+            util.Utility.setEmployeeList(this.employeeList); //actualizo la lista general
+            this.alert.setAlertType(Alert.AlertType.INFORMATION);
+            this.alert.showAndWait();
+            updateTableView();//actualiza el contenido del tableview
+            //disableButtonsIfListEmpty();
+        } catch (ListException e) {
+            alert.setHeaderText("Error: " + e.getMessage());
+            alert.show();
+        }
     }
 
     @javafx.fxml.FXML
@@ -95,7 +105,22 @@ public class EmployeeController
 
     @javafx.fxml.FXML
     public void getPrevOnAction(ActionEvent actionEvent) {
-        //metodo de prev
+        try {
+            Employee selected = employeeTableView.getSelectionModel().getSelectedItem();
+            if (selected == null) {
+                alert.setContentText("Please select an employee first.");
+                alert.setAlertType(Alert.AlertType.WARNING);
+            } else {
+                Object prev = this.employeeList.getPrev(selected);
+                alert.setContentText("The previous element is: " + prev.toString());
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+            }
+            alert.showAndWait();
+        } catch (ListException e) {
+            alert.setContentText("Error: " + e.getMessage());
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+        }
     }
 
     @javafx.fxml.FXML
@@ -110,7 +135,23 @@ public class EmployeeController
 
     @javafx.fxml.FXML
     public void getNextOnAction(ActionEvent actionEvent) {
-        //sort name
+        //get next
+        try {
+            Employee selected = employeeTableView.getSelectionModel().getSelectedItem();
+            if (selected == null) {
+                alert.setContentText("Please select an employee first.");
+                alert.setAlertType(Alert.AlertType.WARNING);
+            } else {
+                Object next = this.employeeList.getNext(selected);
+                alert.setContentText("The next element is: " + next.toString());
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+            }
+            alert.showAndWait();
+        } catch (ListException e) {
+            alert.setContentText("Error: " + e.getMessage());
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+        }
     }
 
     private void updateTableView() throws ListException {
