@@ -62,8 +62,6 @@ public class AddJStaffAssignmentController {
 
         if (selectedDate != null) {
             registerDate = LocalDateTime.of(selectedDate, currentTime);
-            //MENSAJE DEPURACION
-            System.out.println("Fecha y hora guardadas: " + registerDate);
         }
     }
 

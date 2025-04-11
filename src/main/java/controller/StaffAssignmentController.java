@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class StaffAssignmentController {
@@ -171,6 +172,37 @@ public class StaffAssignmentController {
 
     @javafx.fxml.FXML
     public void sortEmplIdOnAction(ActionEvent actionEvent) {
+        try {
+            // Se copian los datos en un arrayList temporal
+            ArrayList<Staffing> tempList = new ArrayList<>();
+            for (int i = 1; i <= staffAssignmentList.size(); i++) {
+                tempList.add((Staffing) staffAssignmentList.getNode(i).data);
+            }
+
+            // Ordenamos la lista
+            tempList.sort((s1, s2) -> util.Utility.compare(s1.getEmployeeId(), s2.getEmployeeId()));
+
+            // Limpiamos la lista original
+            staffAssignmentList.clear();
+
+            // Volvemos a insertar los elementos a la CircularList
+            for (Staffing s : tempList) {
+                staffAssignmentList.add(s);
+            }
+
+            // Actualizamos la lista e interfaz
+            util.Utility.setStaffAssignmentList(this.staffAssignmentList);
+            updateTableView();
+
+            this.alert.setContentText("LIST ORDERED BY EMPLOYEE ID (USING Utility.compare)");
+            this.alert.setAlertType(Alert.AlertType.INFORMATION);
+            this.alert.showAndWait();
+
+        } catch (ListException e) {
+            alert.setHeaderText("Error: " + e.getMessage());
+            alert.show();
+        }
+
     }
 
     @javafx.fxml.FXML
@@ -179,10 +211,72 @@ public class StaffAssignmentController {
 
     @javafx.fxml.FXML
     public void sortEmplNameOnAction(ActionEvent actionEvent) {
+        try {
+            // Se copian los datos en un arrayList temporal
+            ArrayList<Staffing> tempList = new ArrayList<>();
+            for (int i = 1; i <= staffAssignmentList.size(); i++) {
+                tempList.add((Staffing) staffAssignmentList.getNode(i).data);
+            }
+
+            // Ordenamos la lista
+            tempList.sort((s1, s2) -> util.Utility.compare(s1.getEmployeeName(), s2.getEmployeeId()));
+
+            // Limpiamos la lista original
+            staffAssignmentList.clear();
+
+            // Volvemos a insertar los elementos a la CircularList
+            for (Staffing s : tempList) {
+                staffAssignmentList.add(s);
+            }
+
+            // Actualizamos la lista e interfaz
+            util.Utility.setStaffAssignmentList(this.staffAssignmentList);
+            updateTableView();
+
+            this.alert.setContentText("LIST ORDERED BY EMPLOYEE ID (USING Utility.compare)");
+            this.alert.setAlertType(Alert.AlertType.INFORMATION);
+            this.alert.showAndWait();
+
+        } catch (ListException e) {
+            alert.setHeaderText("Error: " + e.getMessage());
+            alert.show();
+        }
+
     }
 
     @javafx.fxml.FXML
     public void sortJobPositionOnAction(ActionEvent actionEvent) {
+        try {
+            // Se copian los datos en un arrayList temporal
+            ArrayList<Staffing> tempList = new ArrayList<>();
+            for (int i = 1; i <= staffAssignmentList.size(); i++) {
+                tempList.add((Staffing) staffAssignmentList.getNode(i).data);
+            }
+
+            // Ordenamos la lista
+            tempList.sort((s1, s2) -> util.Utility.compare(s1.getJobPosition(), s2.getJobPosition()));
+
+            // Limpiamos la lista original
+            staffAssignmentList.clear();
+
+            // Volvemos a insertar los elementos a la CircularList
+            for (Staffing s : tempList) {
+                staffAssignmentList.add(s);
+            }
+
+            // Actualizamos la lista e interfaz
+            util.Utility.setStaffAssignmentList(this.staffAssignmentList);
+            updateTableView();
+
+            this.alert.setContentText("LIST ORDERED BY EMPLOYEE ID (USING Utility.compare)");
+            this.alert.setAlertType(Alert.AlertType.INFORMATION);
+            this.alert.showAndWait();
+
+        } catch (ListException e) {
+            alert.setHeaderText("Error: " + e.getMessage());
+            alert.show();
+        }
+
     }
 
     private void updateTableView() throws ListException {

@@ -7,12 +7,17 @@
     <list default="true" id="f34e871e-699c-4aa1-9ca3-dc11775edcaa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/AddEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AddEmployeeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/AddJobPositionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AddJobPositionsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/JobPositionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/JobPositionsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/StaffAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/StaffAssignmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Utility.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AddJStaffAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AddJStaffAssignmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/StaffAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/StaffAssignmentController.java" afterDir="false" />
+>>>>>>> 1005ab8b6f811aed612585520da2edee434391d2
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +78,11 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+<<<<<<< HEAD
     "git-widget-placeholder": "main",
+=======
+    "git-widget-placeholder": "Jose",
+>>>>>>> 1005ab8b6f811aed612585520da2edee434391d2
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/PC/Documents/Intellij/Laboratory5",
     "project.structure.last.edited": "Project",
