@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Region;
 
 import java.util.Optional;
 
@@ -209,6 +210,9 @@ public class JobPositionsController {
                 alert.setContentText("The previous element is: " + prev.toString());
                 alert.setAlertType(Alert.AlertType.INFORMATION);
             }
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+            alert.getDialogPane().setMinWidth(400);
+
             alert.showAndWait();
         } catch (ListException e) {
             alert.setContentText("Error: " + e.getMessage());
@@ -300,6 +304,9 @@ public class JobPositionsController {
                 alert.setContentText("The next element is: " + next.toString());
                 alert.setAlertType(Alert.AlertType.INFORMATION);
             }
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+            alert.getDialogPane().setMinWidth(400);
+
             alert.showAndWait();
         } catch (ListException e) {
             alert.setContentText("Error: " + e.getMessage());
