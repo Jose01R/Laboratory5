@@ -85,6 +85,17 @@ public class StaffAssignmentController {
 
     @javafx.fxml.FXML
     public void sizeOnAction(ActionEvent actionEvent) {
+        try {
+            this.alert.setContentText("The number of students is : " + this.staffAssignmentList.size());
+            util.Utility.setStaffAssignmentList(this.staffAssignmentList); //actualizo la lista general
+            this.alert.setAlertType(Alert.AlertType.INFORMATION);
+            this.alert.showAndWait();
+            updateTableView();//actualiza el contenido del tableview
+            //disableButtonsIfListEmpty();
+        } catch (ListException e) {
+            alert.setHeaderText("Error: " + e.getMessage());
+            alert.show();
+        }
     }
 
     @javafx.fxml.FXML

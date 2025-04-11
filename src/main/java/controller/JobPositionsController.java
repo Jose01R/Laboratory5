@@ -91,6 +91,22 @@ public class JobPositionsController {
     @javafx.fxml.FXML
     public void getPrevOnAction(ActionEvent actionEvent) {
         //metodo del prev
+        try {
+            JobPosition selected = jobPositionsTableView.getSelectionModel().getSelectedItem();
+            if (selected == null) {
+                alert.setContentText("Please select an employee first.");
+                alert.setAlertType(Alert.AlertType.WARNING);
+            } else {
+                Object prev = this.jobPositionsList.getPrev(selected);
+                alert.setContentText("The previous element is: " + prev.toString());
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+            }
+            alert.showAndWait();
+        } catch (ListException e) {
+            alert.setContentText("Error: " + e.getMessage());
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+        }
     }
 
     @javafx.fxml.FXML
@@ -106,11 +122,38 @@ public class JobPositionsController {
     @javafx.fxml.FXML
     public void getNextOnAction(ActionEvent actionEvent) {
         //metodo de next
+        try {
+            JobPosition selected = jobPositionsTableView.getSelectionModel().getSelectedItem();
+            if (selected == null) {
+                alert.setContentText("Please select an employee first.");
+                alert.setAlertType(Alert.AlertType.WARNING);
+            } else {
+                Object next = this.jobPositionsList.getNext(selected);
+                alert.setContentText("The next element is: " + next.toString());
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+            }
+            alert.showAndWait();
+        } catch (ListException e) {
+            alert.setContentText("Error: " + e.getMessage());
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.showAndWait();
+        }
     }
 
     @javafx.fxml.FXML
     public void sizeOnAction(ActionEvent actionEvent) {
         //metodo de size
+        try {
+            this.alert.setContentText("The number of positions are : " + this.jobPositionsList.size());
+            util.Utility.setJobPositionsList(this.jobPositionsList); //actualizo la lista general
+            this.alert.setAlertType(Alert.AlertType.INFORMATION);
+            this.alert.showAndWait();
+            updateTableView();//actualiza el contenido del tableview
+            //disableButtonsIfListEmpty();
+        } catch (ListException e) {
+            alert.setHeaderText("Error: " + e.getMessage());
+            alert.show();
+        }
     }
 
     private void updateTableView() throws ListException {
